@@ -10,5 +10,14 @@
       "maxDuration": 10
     }
   },
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/product/:slug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/product/:slug/",
+      "destination": "/index.html"
+    }
+  ]
 }
