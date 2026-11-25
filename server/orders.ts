@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { findProduct } from './products'
-import type { Order, OrderLineInput } from './types'
+import { findProduct } from './products.js'
+import type { Order, OrderLineInput } from './types.js'
 
 /**
  * Order persistence — deliberately simple.

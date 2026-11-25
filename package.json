@@ -1,8 +1,9 @@
 {
   "name": "wears-3d-store",
   "private": true,
+  "type": "module",
   "version": "1.0.0",
-  "description": "MANTLE — a dark, spotlit 3D wears storefront built with Vite, React, TypeScript and three.js",
+  "description": "MANTLE \u2014 a dark, spotlit 3D wears storefront built with Vite, React, TypeScript and three.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

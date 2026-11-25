@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { validateOrderPayload, saveOrder, listOrders } from '../../server/orders'
-import { findProduct } from '../../server/products'
-import type { Order, OrderLine } from '../../server/types'
+import { validateOrderPayload, saveOrder, listOrders } from '../../server/orders.js'
+import { findProduct } from '../../server/products.js'
+import type { Order, OrderLine } from '../../server/types.js'
 
 /**
  * POST /api/orders

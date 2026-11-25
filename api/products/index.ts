@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { products } from '../../server/products'
+import { products } from '../../server/products.js'
 
 /**
  * GET /api/products
