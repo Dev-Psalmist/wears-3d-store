@@ -9,6 +9,10 @@ Everything is rendered in real time with **three.js**. There are no product phot
 texture images: every garment is procedural geometry (lofted superellipse sweeps, fluted
 knits, rounded-rect panels) with a PBR cloth material and a generated fabric normal map.
 
+![Gallery](docs/gallery.png)
+
+![Detail](docs/detail.png)
+
 ## Stack
 
 | Layer     | Choice                                                              |
