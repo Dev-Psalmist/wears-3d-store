@@ -3,18 +3,6 @@
  * Kept as a separate file so the browser bundle never touches server code.
  */
 
-export type GarmentModel =
-  | 'hoodie'
-  | 'tee'
-  | 'bomber'
-  | 'trousers'
-  | 'cap'
-  | 'joggers'
-  | 'shirt'
-  | 'puffer'
-  | 'knit'
-  | 'coat'
-
 export type SizeSet = 'apparel' | 'headwear'
 
 export interface Product {
@@ -22,7 +10,8 @@ export interface Product {
   slug: string
   code: string
   name: string
-  model: GarmentModel
+  image: string
+  depth: string
   category: 'Outerwear' | 'Knitwear' | 'Tops' | 'Bottoms' | 'Headwear'
   series: string
   colorName: string

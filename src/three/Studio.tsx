@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
-import { Garment } from './garments'
-import type { GarmentModel } from '../lib/types'
+import { Wear } from './Wear'
+import type { Product } from '../lib/types'
 
 interface StudioProps {
   /** Cool rim light tint. */
@@ -19,7 +19,7 @@ interface StudioProps {
 export function Studio({ cool = '#6C8BFF', warm = '#FF7A3C', intensity = 1 }: StudioProps) {
   return (
     <>
-      <ambientLight intensity={0.34 * intensity} />
+      <ambientLight intensity={0.42 * intensity} />
       <hemisphereLight args={['#e6eeff', '#0a0a0c', 0.5 * intensity]} />
       <spotLight
         position={[0.4, 4.4, 2.6]}
@@ -30,16 +30,15 @@ export function Studio({ cool = '#6C8BFF', warm = '#FF7A3C', intensity = 1 }: St
         decay={2}
         color="#fff5ea"
       />
-      <directionalLight position={[-2.6, 2.4, 1.8]} intensity={1.15 * intensity} color="#cbd8ff" />
-      <pointLight position={[-2.3, 1.15, -1.5]} intensity={16 * intensity} color={cool} distance={8} decay={2} />
-      <pointLight position={[2.4, 0.85, -1.3]} intensity={12 * intensity} color={warm} distance={8} decay={2} />
+      <directionalLight position={[-2.6, 2.4, 1.8]} intensity={1.0 * intensity} color="#e2e8ff" />
+      <pointLight position={[-2.3, 1.15, -1.5]} intensity={6.5 * intensity} color={cool} distance={8} decay={2} />
+      <pointLight position={[2.4, 0.85, -1.3]} intensity={5.5 * intensity} color={warm} distance={8} decay={2} />
     </>
   )
 }
 
 interface FloatingProductProps {
-  model: GarmentModel
-  color: string
+  product: Product
   hovered?: boolean
   /** Phase offset so the ten tiles never bob in sync. */
   phase?: number
@@ -47,7 +46,7 @@ interface FloatingProductProps {
 }
 
 /** Slow idle float + a small turn toward the viewer on hover. */
-export function FloatingProduct({ model, color, hovered = false, phase = 0, baseY = 0.075 }: FloatingProductProps) {
+export function FloatingProduct({ product, hovered = false, phase = 0, baseY = 0.075 }: FloatingProductProps) {
   const ref = useRef<THREE.Group>(null)
 
   useFrame((state, delta) => {
@@ -64,7 +63,7 @@ export function FloatingProduct({ model, color, hovered = false, phase = 0, base
 
   return (
     <group ref={ref} position={[0, baseY, 0]}>
-      <Garment model={model} color={color} />
+      <Wear product={product} maxHeight={0.98} maxWidth={1.16} bulge={0.16} />
     </group>
   )
 }

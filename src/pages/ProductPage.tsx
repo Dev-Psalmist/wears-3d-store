@@ -117,7 +117,7 @@ export function ProductPage() {
             <div className="relative overflow-hidden">
               <ProductStage product={product} className="h-[54vh] min-h-[340px] w-full md:h-[64vh] lg:h-[74vh]" />
               <p className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] uppercase tracking-[0.38em] text-ash/45">
-                Drag to rotate
+                Drag to spin 360°
               </p>
             </div>
 

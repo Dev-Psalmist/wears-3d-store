@@ -33,12 +33,7 @@ export function ProductTile({ product, index }: ProductTileProps) {
         <View className="absolute inset-0" index={index + 1}>
           <Studio intensity={0.95} />
           <Shelf color={product.accent} active={hovered} />
-          <FloatingProduct
-            model={product.model}
-            color={product.color}
-            hovered={hovered}
-            phase={index * 1.73}
-          />
+          <FloatingProduct product={product} hovered={hovered} phase={index * 1.73} />
         </View>
         <span
           className={`pointer-events-none absolute inset-x-4 bottom-3 h-px transition-opacity duration-500 ${

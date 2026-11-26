@@ -1,0 +1,11 @@
+import { chromium } from 'playwright-core'
+const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'] })
+const p = await b.newPage({ viewport: { width: 1600, height: 1000 } })
+await p.goto('https://wears-3d-store.vercel.app/', { waitUntil: 'load' })
+await p.waitForTimeout(5000)
+const tile = p.locator('[data-testid="product-tile"]').nth(2)
+await tile.scrollIntoViewIfNeeded()
+await p.evaluate(() => window.scrollBy(0, -140))
+await p.waitForTimeout(2500)
+await p.screenshot({ path: 'docs/grid.png' })
+await b.close()

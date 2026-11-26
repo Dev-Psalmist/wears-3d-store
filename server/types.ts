@@ -3,18 +3,6 @@
  * Imported by the Vercel serverless functions in /api (never bundled into the client).
  */
 
-export type GarmentModel =
-  | 'hoodie'
-  | 'tee'
-  | 'bomber'
-  | 'trousers'
-  | 'cap'
-  | 'joggers'
-  | 'shirt'
-  | 'puffer'
-  | 'knit'
-  | 'coat'
-
 export type SizeSet = 'apparel' | 'headwear'
 
 export interface Product {
@@ -23,8 +11,10 @@ export interface Product {
   /** Two-word editorial code, e.g. "RIFT 06". */
   code: string
   name: string
-  /** Which procedural three.js garment to mount on the client. */
-  model: GarmentModel
+  /** Transparent cut-out of the piece, served from /public. */
+  image: string
+  /** Grayscale depth map that inflates the cut-out into a 3D mesh. */
+  depth: string
   category: 'Outerwear' | 'Knitwear' | 'Tops' | 'Bottoms' | 'Headwear'
   series: string
   colorName: string

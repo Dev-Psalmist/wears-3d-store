@@ -5,9 +5,11 @@ glass shelves in a 5×2 gallery. Click a silhouette and it lifts into a detail v
 large, draggable, auto-rotating 3D product above an ember-lit shelf, a size selector and a
 working bag.
 
-Everything is rendered in real time with **three.js**. There are no product photos or
-texture images: every garment is procedural geometry (lofted superellipse sweeps, fluted
-knits, rounded-rect panels) with a PBR cloth material and a generated fabric normal map.
+Every piece is the **real product photo**, turned into 3D. Each shot is background-removed
+into a transparent cut-out and paired with a grayscale depth map; a dense plane is pushed
+along that map and its normals recomputed, so a flat photo becomes a puffed, shaded slab
+with real parallax. Because it is genuine geometry, drag spins the piece a full **360°**:
+front, silhouette edge, and the mirrored back. Nothing is a fake CSS tilt.
 
 ![Gallery](docs/gallery.png)
 
@@ -24,6 +26,8 @@ knits, rounded-rect panels) with a PBR cloth material and a generated fabric nor
 ## Layout
 
 ```
+assets/source/           Original product photos (10)
+public/wears/            Generated cut-outs + depth maps (built by the script below)
 api/                     Vercel functions (the backend)
   products/index.ts        GET  /api/products
   products/[slug].ts       GET  /api/products/:slug
@@ -34,14 +38,27 @@ server/                  Shared backend code
   products.ts              The catalogue: 10 garments, prices, sizes, colours
   orders.ts                Validation, server-side pricing, order store
 src/                     Frontend
-  three/                   geometry.ts · materials.ts · garments.tsx · Shelf.tsx
+  three/                   Wear.tsx (photo -> inflated 3D mesh) · Shelf.tsx
                            Studio.tsx · GalleryCanvas.tsx · ProductStage.tsx
   components/              Header · Footer · ProductTile · BagDrawer · Atmosphere
   pages/                   Home (gallery) · ProductPage (detail)
   store/BagContext.tsx     Bag state + order submission
   lib/                     api client · types · hooks
-scripts/                 smoke.mjs (Playwright checks) · tiles.mjs (per-tile capture)
+scripts/                 process_wears.py (cut-outs + depth maps) · smoke.mjs · check-wears.mjs
 ```
+
+### Building the wear assets
+
+```bash
+pip install rembg onnxruntime scipy pillow numpy
+npm run assets
+```
+
+For every photo in `assets/source/` this writes `public/wears/<slug>.webp` (cut-out) and
+`public/wears/<slug>-depth.webp` (height map). The depth map is a smoothed euclidean
+distance transform of the alpha mask, so the centre of a piece bulges forward and the edges
+taper to the silhouette. To add a product: drop `<slug>.webp` into `assets/source/`, run
+`npm run assets`, then add the entry to `server/products.ts`.
 
 ### How the 3D gallery works
 
@@ -117,9 +134,10 @@ Node functions. Nothing else is required: the frontend calls same-origin `/api/*
 
 ## Notes and limitations
 
-- Garments are stylised procedural models, not scanned or modelled product assets. Swapping
-  in real GLB files means replacing `<Garment />` in `src/three/garments.tsx` with
-  drei's `useGLTF` — the shelf, lighting and detail stage stay as they are.
+- The 360° is depth-inflated from a single photograph per piece, not a photogrammetry or
+  multi-angle capture. It reads as a real 3D object turning, but a true multi-angle spin
+  needs either a turntable photo sequence or a modelled GLB. For the latter, swap `<Wear />`
+  in `src/three/Wear.tsx` for drei's `useGLTF` — shelf, lighting and stage stay as they are.
 - The gallery keeps one canvas for ten views. On low-end mobile GPUs, lower `dpr` in
   `GalleryCanvas.tsx`.
 - No checkout or payment provider is wired up; "Add to bag" places an order through

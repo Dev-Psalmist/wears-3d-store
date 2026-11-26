@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import * as THREE from 'three'
-import { Garment } from './garments'
 import { Shelf } from './Shelf'
 import { Studio } from './Studio'
+import { Wear } from './Wear'
 import type { Product } from '../lib/types'
 
 export interface DragState {
@@ -34,7 +34,7 @@ function FramedCamera({ width = 2.15, height = 1.62, fov = 30 }: { width?: numbe
   return null
 }
 
-function DragGroup({ drag, model, color }: { drag: React.MutableRefObject<DragState>; model: Product['model']; color: string }) {
+function DragGroup({ drag, product }: { drag: React.MutableRefObject<DragState>; product: Product }) {
   const ref = useRef<THREE.Group>(null)
 
   useFrame((state, delta) => {
@@ -55,7 +55,7 @@ function DragGroup({ drag, model, color }: { drag: React.MutableRefObject<DragSt
 
   return (
     <group ref={ref} position={[0, 0.11, 0]}>
-      <Garment model={model} color={color} />
+      <Wear product={product} maxHeight={1.04} maxWidth={1.34} bulge={0.2} />
     </group>
   )
 }
@@ -118,7 +118,7 @@ export function ProductStage({ product, className }: ProductStageProps) {
         <FramedCamera />
         <Studio intensity={1.12} cool="#7A6BFF" warm="#FF6B2C" />
         <Shelf color="#FF6B2C" active bloom width={1.8} depth={0.72} />
-        <DragGroup drag={drag} model={product.model} color={product.color} />
+        <DragGroup drag={drag} product={product} />
         <EffectComposer multisampling={0}>
           <Bloom intensity={0.9} luminanceThreshold={0.52} luminanceSmoothing={0.28} mipmapBlur radius={0.72} />
         </EffectComposer>
