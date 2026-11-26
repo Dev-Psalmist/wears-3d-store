@@ -1,2 +1,42 @@
 {
+  "arc-03": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "halo-02": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "lattice-05": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "monolith-09": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "nimbus-07": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "pulse-08": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "rift-06": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "strata-04": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "velum-01": {
+    "frames": 36,
+    "step": 10.0
+  },
+  "verge-10": {
+    "frames": 36,
+    "step": 10.0
+  }
 }

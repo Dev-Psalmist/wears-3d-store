@@ -53,6 +53,17 @@ tiles stay ordinary DOM elements (links, hover states, accessibility) on top.
 The detail page mounts its own `ProductStage` canvas with a drag-rotate group (with
 inertia and a slow idle auto-rotation) plus a bloom pass for the shelf glow.
 
+### Turntables
+
+Every product now ships a rendered 360 sequence, so the detail page plays a real spin
+instead of the procedural stage. `ProductStage` checks `public/turns/manifest.json`; when a
+slug is listed, `Turntable` takes over and the three.js stage is skipped for that piece.
+
+Each slug has 36 transparent frames at 640x640 (`frame-00.webp` to `frame-35.webp`, 10
+degrees apart, frame 00 facing front). The sequences were rendered from reconstructed 3D
+meshes of the isolated garments, not from flat photos, so the side views show real garment
+depth. Total weight is 7 MB for all ten, and the player preloads before it paints.
+
 ## Run it locally
 
 ```bash
@@ -117,9 +128,13 @@ Node functions. Nothing else is required: the frontend calls same-origin `/api/*
 
 ## Notes and limitations
 
-- Garments are stylised procedural models, not scanned or modelled product assets. Swapping
-  in real GLB files means replacing `<Garment />` in `src/three/garments.tsx` with
-  drei's `useGLTF` — the shelf, lighting and detail stage stay as they are.
+- The gallery tiles still use the stylised procedural models, since ten live meshes would be
+  heavy on one canvas. The detail page uses the rendered turntables. Swapping the gallery to
+  real GLB files means replacing `<Garment />` in `src/three/garments.tsx` with drei's
+  `useGLTF` — the shelf, lighting and detail stage stay as they are.
+- Turntable frames are 640x640 with a transparent background. If you re-render at another
+  size, keep the canvas and crop identical across the sequence and update `frames` in
+  `public/turns/manifest.json`.
 - The gallery keeps one canvas for ten views. On low-end mobile GPUs, lower `dpr` in
   `GalleryCanvas.tsx`.
 - No checkout or payment provider is wired up; "Add to bag" places an order through
