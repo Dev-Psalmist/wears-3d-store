@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "rift-06",
+    "strategy": "object",
+    "source": "rift-06.webp",
+    "size": [
+      870,
+      1179
+    ],
+    "aspect": 0.738,
+    "fill_of_bbox": 0.766,
+    "skin_pct": 59.5,
+    "note": "flat-lay / ghost-mannequin: background removed, item untouched"
+  },
+  {
+    "slug": "verge-10",
+    "strategy": "object",
+    "source": "verge-10.webp",
+    "size": [
+      1185,
+      1400
+    ],
+    "aspect": 0.846,
+    "fill_of_bbox": 0.648,
+    "skin_pct": 0.0,
+    "note": "flat-lay / ghost-mannequin: background removed, item untouched"
+  },
+  {
+    "slug": "halo-02",
+    "strategy": "object",
+    "source": "halo-02.webp",
+    "size": [
+      753,
+      734
+    ],
+    "aspect": 1.026,
+    "fill_of_bbox": 0.739,
+    "skin_pct": 0.31,
+    "note": "flat-lay / ghost-mannequin: background removed, item untouched"
+  },
+  {
+    "slug": "strata-04",
+    "strategy": "object",
+    "source": "strata-04.webp",
+    "size": [
+      490,
+      1200
+    ],
+    "aspect": 0.408,
+    "fill_of_bbox": 0.799,
+    "skin_pct": 54.65,
+    "note": "flat-lay / ghost-mannequin: background removed, item untouched"
+  },
+  {
+    "slug": "pulse-08",
+    "strategy": "object",
+    "source": "pulse-08.webp",
+    "size": [
+      1400,
+      871
+    ],
+    "aspect": 1.607,
+    "fill_of_bbox": 0.726,
+    "skin_pct": 0.01,
+    "note": "flat-lay / ghost-mannequin: background removed, item untouched"
+  },
+  {
+    "slug": "velum-01",
+    "strategy": "object",
+    "source": "velum-01.jpg",
+    "size": [
+      459,
+      800
+    ],
+    "aspect": 0.574,
+    "fill_of_bbox": 0.894,
+    "skin_pct": 0.0,
+    "note": "flat-lay / ghost-mannequin: background removed, item untouched"
+  },
+  {
+    "slug": "nimbus-07",
+    "strategy": "object",
+    "source": "nimbus-07.webp",
+    "size": [
+      349,
+      468
+    ],
+    "aspect": 0.746,
+    "fill_of_bbox": 0.813,
+    "skin_pct": 1.77,
+    "note": "flat-lay / ghost-mannequin: background removed, item untouched"
+  },
+  {
+    "slug": "arc-03",
+    "strategy": "garment",
+    "source": "arc-03.webp",
+    "size": [
+      1062,
+      724
+    ],
+    "aspect": 1.467,
+    "fill_of_bbox": 0.764,
+    "skin_pct": 0.09,
+    "note": "on-model shot: model removed by luminance band + skin rejection (verify edges)"
+  },
+  {
+    "slug": "lattice-05",
+    "strategy": "garment",
+    "source": "lattice-05.jpg",
+    "size": [
+      550,
+      444
+    ],
+    "aspect": 1.239,
+    "fill_of_bbox": 0.756,
+    "skin_pct": 87.0,
+    "note": "on-model shot: model removed by luminance band + skin rejection (verify edges)"
+  },
+  {
+    "slug": "monolith-09",
+    "strategy": "garment",
+    "source": "monolith-09.jpeg",
+    "size": [
+      308,
+      538
+    ],
+    "aspect": 0.572,
+    "fill_of_bbox": 0.726,
+    "skin_pct": 3.84,
+    "note": "on-model shot: model removed by luminance band + skin rejection (verify edges)"
+  }
+]

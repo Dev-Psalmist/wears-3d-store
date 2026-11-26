@@ -3,6 +3,8 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import * as THREE from 'three'
 import { Garment } from './garments'
+import { Turntable } from '../components/Turntable'
+import { useTurns } from '../lib/turns'
 import { Shelf } from './Shelf'
 import { Studio } from './Studio'
 import type { Product } from '../lib/types'
@@ -70,6 +72,8 @@ interface ProductStageProps {
  * Drag anywhere on the stage to tilt and spin it; release to keep the momentum.
  */
 export function ProductStage({ product, className }: ProductStageProps) {
+  const turns = useTurns()
+  const turn = turns[product.slug]
   const drag = useRef<DragState>({ active: false, lastX: 0, lastY: 0, yaw: 0.4, pitch: 0, velocity: 0 })
   const [dragging, setDragging] = useState(false)
 
@@ -97,6 +101,15 @@ export function ProductStage({ product, className }: ProductStageProps) {
   const endDrag = () => {
     drag.current.active = false
     setDragging(false)
+  }
+
+  // A real frame-sequence turntable wins when one has been rendered for this piece.
+  if (turn) {
+    return (
+      <div className={`relative h-full w-full ${className ?? ''}`} data-testid="product-stage">
+        <Turntable slug={product.slug} spec={turn} />
+      </div>
+    )
   }
 
   return (
