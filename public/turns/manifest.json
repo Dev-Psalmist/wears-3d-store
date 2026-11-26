@@ -1,42 +1,52 @@
 {
   "arc-03": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "halo-02": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "lattice-05": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "monolith-09": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "nimbus-07": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "pulse-08": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "rift-06": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "strata-04": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "velum-01": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   },
   "verge-10": {
     "frames": 36,
-    "step": 10.0
+    "step": 10,
+    "pingpong": true
   }
 }
