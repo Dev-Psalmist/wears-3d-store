@@ -1,4 +1,11 @@
-import type { OrderLineInput, OrderResponse, ProductResponse, ProductsResponse } from './types'
+import type {
+  BookingRequest,
+  BookingResponse,
+  OrderLineInput,
+  OrderResponse,
+  ProductResponse,
+  ProductsResponse,
+} from './types'
 
 /**
  * The storefront always talks to the serverless API — no product data is baked
@@ -41,5 +48,12 @@ export function createOrder(items: OrderLineInput[], note?: string) {
       items,
       customer: note ? { note } : undefined,
     }),
+  })
+}
+
+export function createBooking(payload: BookingRequest) {
+  return request<BookingResponse>('/api/bookings', {
+    method: 'POST',
+    body: JSON.stringify(payload),
   })
 }

@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { BrandMark } from './BrandMark'
+import { BRAND } from '../lib/site'
 
 export function Footer() {
   return (
@@ -10,8 +12,9 @@ export function Footer() {
 
         <div className="mt-14 grid gap-10 border-t border-white/[0.07] pt-10 text-[11px] text-ash md:grid-cols-4">
           <div>
-            <p className="text-[9px] uppercase tracking-[0.34em] text-bone/70">Mantle</p>
-            <p className="mt-3 max-w-[220px] leading-relaxed text-ash/70">
+            <BrandMark size={26} wordmark={false} />
+            <p className="mt-3 text-[10px] uppercase tracking-[0.34em] text-bone/70">{BRAND.name}</p>
+            <p className="mt-3 max-w-[240px] leading-relaxed text-ash/70">
               Series 01 — ten silhouettes rendered in real time. Built with React, three.js and a small Node API.
             </p>
           </div>
@@ -34,6 +37,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/#booking" className="transition-colors hover:text-bone">
+                  Booking
+                </Link>
+              </li>
+              <li>
                 <Link to="/#contacts" className="transition-colors hover:text-bone">
                   Contacts
                 </Link>
@@ -44,23 +52,28 @@ export function Footer() {
             <p className="text-[9px] uppercase tracking-[0.34em] text-bone/70">Contact</p>
             <ul className="mt-3 space-y-2 text-ash/70">
               <li>
-                <a href="mailto:studio@mantle.example" className="transition-colors hover:text-bone">
-                  studio@mantle.example
+                <a href={`mailto:${BRAND.email}`} className="transition-colors hover:text-bone">
+                  {BRAND.email}
                 </a>
               </li>
-              <li>+44 20 0000 0000</li>
-              <li>London / Lisbon</li>
+              <li>
+                <a href={`tel:${BRAND.phone}`} className="transition-colors hover:text-bone">
+                  {BRAND.phoneDisplay}
+                </a>
+              </li>
+              <li>{BRAND.location}</li>
+              <li className="text-ash/50">{BRAND.hours}</li>
             </ul>
           </div>
           <div>
             <p className="text-[9px] uppercase tracking-[0.34em] text-bone/70">Series</p>
-            <p className="mt-3 text-ash/70">01 / 2026</p>
+            <p className="mt-3 text-ash/70">01 / {BRAND.year}</p>
             <p className="mt-2 text-ash/50">All garments modelled procedurally. No photography.</p>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-white/[0.07] pt-6 text-[9px] uppercase tracking-[0.28em] text-ash/50 md:flex-row md:items-center md:justify-between">
-          <span>© {new Date().getFullYear()} Mantle Studio</span>
+          <span>© {new Date().getFullYear()} {BRAND.name}</span>
           <span>Form, lit from within.</span>
         </div>
       </div>

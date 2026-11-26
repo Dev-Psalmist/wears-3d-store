@@ -57,7 +57,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     typeof value === 'string' && value.trim() ? value.trim().slice(0, max) : null
 
   const order: Order = {
-    id: `MNT-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`,
+    id: `OGS-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`,
     status: 'received',
     createdAt: new Date().toISOString(),
     customer: {
@@ -67,7 +67,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     items,
     subtotal,
-    currency: 'USD',
+    currency: 'NGN',
   }
 
   await saveOrder(order)

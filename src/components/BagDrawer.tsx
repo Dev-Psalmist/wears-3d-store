@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { formatNaira } from '../lib/money'
 import { useBag } from '../store/BagContext'
 
 export function BagDrawer() {
@@ -81,7 +82,7 @@ export function BagDrawer() {
                         {item.name} · Size {item.size}
                       </p>
                       <p className="mt-1 text-[11px] text-ash/70">
-                        Qty {item.quantity} · ${item.price * item.quantity}
+                        Qty {item.quantity} · {formatNaira(item.price * item.quantity)}
                       </p>
                     </div>
                     <button
@@ -99,7 +100,7 @@ export function BagDrawer() {
             <div className="border-t border-white/10 px-6 py-5">
               <div className="flex items-baseline justify-between">
                 <span className="text-[9px] uppercase tracking-[0.3em] text-ash">Subtotal</span>
-                <span className="text-[15px] tracking-[0.06em] text-bone">${subtotal} USD</span>
+                <span className="text-[15px] tracking-[0.06em] text-bone">{formatNaira(subtotal)}</span>
               </div>
               <button
                 type="button"

@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ProductStage } from '../three/ProductStage'
 import { getProduct } from '../lib/api'
+import { formatNaira } from '../lib/money'
 import type { ProductResponse } from '../lib/types'
 import { useBag } from '../store/BagContext'
 
@@ -26,7 +27,7 @@ export function ProductPage() {
       .then((response) => {
         if (cancelled) return
         setData(response)
-        document.title = `MANTLE — ${response.product.code} ${response.product.name}`
+        document.title = `OG Stores — ${response.product.code} ${response.product.name}`
       })
       .catch((cause: Error) => {
         if (!cancelled) setError(cause.message)
@@ -164,7 +165,8 @@ export function ProductPage() {
             <div className="mt-8 flex items-baseline justify-between border-t border-white/[0.07] pt-5">
               <span className="text-[9px] uppercase tracking-[0.3em] text-ash">Price</span>
               <span className="text-[17px] tracking-[0.05em] text-bone">
-                ${product.price} <span className="text-[9px] uppercase tracking-[0.2em] text-ash">USD</span>
+                {formatNaira(product.price)}{' '}
+                <span className="text-[9px] uppercase tracking-[0.2em] text-ash">NGN</span>
               </span>
             </div>
 

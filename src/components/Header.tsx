@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getProducts } from '../lib/api'
+import { BrandMark } from './BrandMark'
 import type { Product } from '../lib/types'
 import { useBag } from '../store/BagContext'
 
@@ -9,6 +10,7 @@ const NAV = [
   { label: 'Home', hash: '#top' },
   { label: 'About', hash: '#about' },
   { label: 'FAQ', hash: '#faq' },
+  { label: 'Booking', hash: '#booking' },
   { label: 'Contacts', hash: '#contacts' },
 ]
 
@@ -56,12 +58,8 @@ export function Header() {
         }`}
       >
         <div className="mx-auto flex h-[68px] max-w-[1680px] items-center justify-between px-5 md:px-9">
-          <Link to="/" className="group flex items-center gap-3" aria-label="MANTLE home">
-            <span className="relative flex h-2 w-2 items-center justify-center">
-              <span className="absolute h-2 w-2 rounded-full bg-ember/30 blur-[3px] transition-all duration-500 group-hover:bg-ember/60" />
-              <span className="relative h-[3px] w-[3px] rounded-full bg-ember" />
-            </span>
-            <span className="text-[12px] font-medium uppercase tracking-[0.52em] text-bone">Mantle</span>
+          <Link to="/" className="group flex items-center" aria-label="OG Stores home">
+            <BrandMark size={30} className="transition-opacity duration-500 group-hover:opacity-85" />
           </Link>
 
           <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">

@@ -1,5 +1,5 @@
 /**
- * Shared domain types for the MANTLE storefront.
+ * Shared domain types for the OG Stores storefront.
  * Imported by the Vercel serverless functions in /api (never bundled into the client).
  */
 
@@ -33,7 +33,7 @@ export interface Product {
   /** Shelf glow tint when idle (hex). */
   accent: string
   price: number
-  currency: 'USD'
+  currency: 'NGN'
   sizes: string[]
   sizeSet: SizeSet
   description: string
@@ -57,6 +57,32 @@ export interface OrderLine {
   lineTotal: number
 }
 
+export interface Booking {
+  id: string
+  status: 'requested'
+  createdAt: string
+  customer: {
+    name: string
+    email: string
+    phone: string
+  }
+  appointment: {
+    /** ISO date, YYYY-MM-DD. */
+    date: string
+    /** 24-hour HH:MM, West Africa Time. */
+    time: string
+    timezone: string
+  }
+  /** The piece they want to see, when they picked one. */
+  piece: { slug: string; code: string; name: string } | null
+  note: string | null
+}
+
+export interface BookingResponse {
+  booking: Booking
+  message: string
+}
+
 export interface Order {
   id: string
   status: 'received'
@@ -68,5 +94,5 @@ export interface Order {
   }
   items: OrderLine[]
   subtotal: number
-  currency: 'USD'
+  currency: 'NGN'
 }

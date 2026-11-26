@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ProductTile } from '../components/ProductTile'
+import { BookingSection } from '../components/BookingSection'
+import { BRAND } from '../lib/site'
 import { useHashScroll, useProducts } from '../lib/useProducts'
 
 export function Home() {
@@ -10,7 +12,7 @@ export function Home() {
   useHashScroll(location.hash)
 
   useEffect(() => {
-    document.title = 'MANTLE — Form, lit from within.'
+    document.title = `${BRAND.name} — ${BRAND.tagline}`
   }, [])
 
   return (
@@ -117,8 +119,8 @@ export function Home() {
           <p className="text-[9px] uppercase tracking-[0.34em] text-ash">About</p>
           <div>
             <p className="max-w-2xl font-serif text-[clamp(22px,2.6vw,34px)] leading-[1.28] text-bone/90">
-              Mantle is a small studio making a small number of things. Series 01 is ten pieces, drawn once and cut
-              slowly.
+              {BRAND.name} is a small house making a small number of things. Series 01 is ten pieces, drawn once and
+              cut slowly.
             </p>
             <p className="mt-6 max-w-xl text-[12px] leading-[1.9] text-ash">
               The collection is shown the way we look at it in the studio: in a dark room, on glass, under a single
@@ -148,8 +150,12 @@ export function Home() {
                 a: 'Yes. Drag anywhere on the detail stage to tilt and spin the garment. Release and it keeps its momentum before settling back into a slow auto-rotation.',
               },
               {
-                q: 'Is checkout live?',
-                a: 'No payment is taken. Orders are validated and priced by POST /api/orders and stored in memory for the demo — swap in a database before selling.',
+                q: 'How do I try a piece on?',
+                a: 'Book a fitting below. Pick a date, a time and the piece you want to see; the request is validated by POST /api/bookings and we confirm by email or WhatsApp within one working day.',
+              },
+              {
+                q: 'What currency are the prices in?',
+                a: 'Everything is priced in Nigerian naira (NGN). Totals are recalculated server-side by POST /api/orders, so the bag can never be tampered with.',
               },
             ].map((item) => (
               <div key={item.q} className="py-5">
@@ -161,33 +167,53 @@ export function Home() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------- booking ---- */}
+      <BookingSection />
+
       {/* ------------------------------------------------------ contacts ---- */}
       <section id="contacts" className="relative mt-24 px-5 md:px-9">
         <div className="mx-auto grid max-w-[1680px] gap-10 border-t border-white/[0.07] pt-12 md:grid-cols-[0.9fr_1.1fr]">
           <p className="text-[9px] uppercase tracking-[0.34em] text-ash">Contacts</p>
           <div className="max-w-xl space-y-6">
             <p className="text-[12px] leading-[1.9] text-ash">
-              For stockists, press and wholesale, write to the studio. We answer within two working days.
+              For fittings, stockists, press and wholesale, reach the studio directly. We answer within one working
+              day, {BRAND.hours.toLowerCase()}.
             </p>
             <div className="grid gap-4 text-[12px] sm:grid-cols-2">
               <div>
                 <p className="text-[9px] uppercase tracking-[0.3em] text-ash/60">Email</p>
-                <a href="mailto:studio@mantle.example" className="mt-1 block text-bone/90 underline decoration-white/20 underline-offset-4">
-                  studio@mantle.example
+                <a
+                  href={`mailto:${BRAND.email}`}
+                  className="mt-1 block text-bone/90 underline decoration-white/20 underline-offset-4 transition-colors hover:text-ember"
+                >
+                  {BRAND.email}
+                </a>
+              </div>
+              <div>
+                <p className="text-[9px] uppercase tracking-[0.3em] text-ash/60">Phone / WhatsApp</p>
+                <a
+                  href={`tel:${BRAND.phone}`}
+                  className="mt-1 block text-bone/90 underline decoration-white/20 underline-offset-4 transition-colors hover:text-ember"
+                >
+                  {BRAND.phoneDisplay}
                 </a>
               </div>
               <div>
                 <p className="text-[9px] uppercase tracking-[0.3em] text-ash/60">Studio</p>
-                <p className="mt-1 text-bone/90">14 Ashworth Lane, London</p>
+                <p className="mt-1 text-bone/90">{BRAND.location} — by appointment</p>
+              </div>
+              <div>
+                <p className="text-[9px] uppercase tracking-[0.3em] text-ash/60">Hours</p>
+                <p className="mt-1 text-bone/90">{BRAND.hours}</p>
               </div>
             </div>
-            <Link
-              to="/product/rift-06"
+            <a
+              href="#booking"
               className="inline-flex items-center gap-3 border border-white/15 px-5 py-3 text-[9px] uppercase tracking-[0.3em] text-bone transition-colors hover:border-ember/60"
             >
-              View Rift 06
+              Book a fitting
               <span aria-hidden="true">→</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

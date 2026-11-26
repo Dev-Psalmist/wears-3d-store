@@ -11,11 +11,12 @@ const API_ROUTES: Array<{ pattern: RegExp; file: string }> = [
   { pattern: /^\/api\/products\/?$/, file: 'api/products/index.ts' },
   { pattern: /^\/api\/products\/([^/]+)\/?$/, file: 'api/products/[slug].ts' },
   { pattern: /^\/api\/orders\/?$/, file: 'api/orders/index.ts' },
+  { pattern: /^\/api\/bookings\/?$/, file: 'api/bookings/index.ts' },
 ]
 
 function apiDevServer(): Plugin {
   return {
-    name: 'mantle-api-dev',
+    name: 'og-stores-api-dev',
     apply: 'serve',
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {

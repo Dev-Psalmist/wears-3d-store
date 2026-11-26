@@ -29,7 +29,7 @@ export interface Product {
   color: string
   accent: string
   price: number
-  currency: 'USD'
+  currency: 'NGN'
   sizes: string[]
   sizeSet: SizeSet
   description: string
@@ -55,6 +55,31 @@ export interface Neighbour {
 export interface ProductResponse {
   product: Product
   neighbours: { prev: Neighbour; next: Neighbour }
+}
+
+export interface BookingRequest {
+  name: string
+  email: string
+  phone: string
+  date: string
+  time: string
+  piece?: string | null
+  note?: string | null
+}
+
+export interface Booking {
+  id: string
+  status: 'requested'
+  createdAt: string
+  customer: { name: string; email: string; phone: string }
+  appointment: { date: string; time: string; timezone: string }
+  piece: { slug: string; code: string; name: string } | null
+  note: string | null
+}
+
+export interface BookingResponse {
+  booking: Booking
+  message: string
 }
 
 export interface OrderLineInput {

@@ -4,6 +4,7 @@ import { View } from '@react-three/drei'
 import { Shelf } from '../three/Shelf'
 import { FloatingProduct, Studio } from '../three/Studio'
 import type { Product } from '../lib/types'
+import { formatNaira } from '../lib/money'
 
 interface ProductTileProps {
   product: Product
@@ -25,7 +26,7 @@ export function ProductTile({ product, index }: ProductTileProps) {
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
-      aria-label={`${product.code} — ${product.name}, $${product.price}`}
+      aria-label={`${product.code} — ${product.name}, ${formatNaira(product.price)}`}
       data-testid="product-tile"
       data-slug={product.slug}
     >
@@ -52,7 +53,7 @@ export function ProductTile({ product, index }: ProductTileProps) {
         <span className="text-[10px] font-medium tracking-[0.3em] text-bone/85 transition-colors duration-300 group-hover:text-ember">
           {product.code}
         </span>
-        <span className="text-[10px] tracking-[0.16em] text-ash">${product.price}</span>
+        <span className="text-[10px] tracking-[0.16em] text-ash">{formatNaira(product.price)}</span>
       </div>
       <p className="mt-1 truncate text-[11px] tracking-[0.02em] text-ash/60 transition-colors duration-300 group-hover:text-ash">
         {product.name}
