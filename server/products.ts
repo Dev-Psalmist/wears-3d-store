@@ -67,7 +67,7 @@ export const products: Product[] = [
     model: 'tee', category: 'Sneakers', series: 'Footwear 01', colorName: 'Black',
     color: '#222326', accent: '#9EA3AA',
     imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Oca-low-washed-black-contrast-thread-canvas-sneaker.png/800px-Oca-low-washed-black-contrast-thread-canvas-sneaker.png',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Oca-low-washed-black-contrast-thread-canvas-sneaker.png?width=800',
     imageCredit: 'CARIUMA',
     imageLicense: 'CC BY-SA 4.0',
     imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Oca-low-washed-black-contrast-thread-canvas-sneaker.png',
