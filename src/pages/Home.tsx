@@ -47,8 +47,7 @@ export function Home() {
             className="mt-9 flex flex-col justify-between gap-7 md:flex-row md:items-end"
           >
             <p className="max-w-md text-[12px] leading-[1.85] tracking-[0.01em] text-ash">
-              Ten silhouettes, suspended above glass and lit from below. Every piece is modelled in the browser —
-              drag a garment to turn it, and it will keep turning on its own.
+              A considered footwear edit, from everyday canvas and street sneakers to running shoes and refined leather styles for the office.
             </p>
             <div className="flex items-center gap-4 text-[9px] uppercase tracking-[0.3em] text-ash/60">
               <span className="hidden h-px w-10 bg-white/15 sm:block" />
@@ -119,13 +118,10 @@ export function Home() {
           <p className="text-[9px] uppercase tracking-[0.34em] text-ash">About</p>
           <div>
             <p className="max-w-2xl font-serif text-[clamp(22px,2.6vw,34px)] leading-[1.28] text-bone/90">
-              {BRAND.name} is a small house making a small number of things. Series 01 is ten pieces, drawn once and
-              cut slowly.
+              {BRAND.name} is a footwear destination bringing together ten styles, from casual canvas classics to polished formal shoes.
             </p>
             <p className="mt-6 max-w-xl text-[12px] leading-[1.9] text-ash">
-              The collection is shown the way we look at it in the studio: in a dark room, on glass, under a single
-              light. Nothing is photographed — each garment is built from geometry and a cloth shader, then lit in real
-              time. Move your cursor across a shelf and the light underneath answers.
+              The collection brings together everyday canvas shoes, contemporary sneakers, running styles and formal leather silhouettes. Product photographs are static, with source credits and licence information provided on each detail page.
             </p>
           </div>
         </div>
