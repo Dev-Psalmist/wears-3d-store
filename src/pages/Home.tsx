@@ -27,7 +27,7 @@ export function Home() {
             className="flex items-center gap-3"
           >
             <span className="h-px w-8 bg-ember/80" />
-            <p className="text-[9px] uppercase tracking-[0.42em] text-ash">Wears / Series 01</p>
+            <p className="text-[9px] uppercase tracking-[0.42em] text-ash">OG Stores / Footwear 01</p>
           </motion.div>
 
           <motion.h1
@@ -36,8 +36,8 @@ export function Home() {
             transition={{ duration: 1.1, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-7 max-w-5xl text-[clamp(40px,7.4vw,104px)] font-light leading-[0.94] tracking-[-0.035em] text-bone"
           >
-            Form,{' '}
-            <span className="font-serif italic tracking-[-0.02em] text-bone/80">lit from within.</span>
+            Step out,{' '}
+            <span className="font-serif italic tracking-[-0.02em] text-bone/80">in every direction.</span>
           </motion.h1>
 
           <motion.div
@@ -52,7 +52,7 @@ export function Home() {
             </p>
             <div className="flex items-center gap-4 text-[9px] uppercase tracking-[0.3em] text-ash/60">
               <span className="hidden h-px w-10 bg-white/15 sm:block" />
-              <span>10 pieces / Series 01</span>
+              <span>10 styles / Footwear 01</span>
             </div>
           </motion.div>
         </div>
@@ -62,7 +62,7 @@ export function Home() {
       <section id="collection" className="relative mt-14 px-5 md:mt-20 md:px-9">
         <div className="mx-auto max-w-[1680px]">
           <div className="mb-6 flex items-baseline justify-between border-b border-white/[0.07] pb-3">
-            <p className="text-[9px] uppercase tracking-[0.34em] text-ash">The collection</p>
+            <p className="text-[9px] uppercase tracking-[0.34em] text-ash">The footwear collection</p>
             <p className="text-[9px] uppercase tracking-[0.28em] text-ash/50">
               {data ? `${String(data.count).padStart(2, '0')} pieces` : 'Loading'}
             </p>
@@ -138,19 +138,19 @@ export function Home() {
           <dl className="max-w-2xl divide-y divide-white/[0.07]">
             {[
               {
-                q: 'How do the garments look so real?',
-                a: 'Every piece is procedural three.js geometry — sweeps, panels and ribbing — shaded with a PBR cloth material (sheen, roughness, a generated fabric normal map) and lit by a three-point studio rig.',
+                q: 'Where do the product photographs come from?',
+                a: 'Product cards use static footwear photographs. Each product detail page includes the image source and licence information.',
               },
               {
-                q: 'What sizes do you run?',
-                a: 'Tops, outerwear and bottoms run S to XXL. Headwear is one size with a brass adjuster. Size selection happens on the product page.',
+                q: 'What sizes do you offer?',
+                a: 'Footwear sizes are currently listed in EU sizing from 39 to 45. Check the product details before ordering.',
               },
               {
-                q: 'Can I rotate the product?',
-                a: 'Yes. Drag anywhere on the detail stage to tilt and spin the garment. Release and it keeps its momentum before settling back into a slow auto-rotation.',
+                q: 'Are the product images interactive?',
+                a: 'No. Product photographs are intentionally static so the shoe details remain clear and authentic.',
               },
               {
-                q: 'How do I try a piece on?',
+                q: 'How do I try a pair on?',
                 a: 'Book a fitting below. Pick a date, a time and the piece you want to see; the request is validated by POST /api/bookings and we confirm by email or WhatsApp within one working day.',
               },
               {
