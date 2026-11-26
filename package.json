@@ -9,8 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --port 4173",
     "typecheck": "tsc --noEmit",
-    "smoke": "node scripts/smoke.mjs",
-    "assets": "python3 scripts/process_wears.py"
+    "smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
     "@react-three/drei": "9.114.3",

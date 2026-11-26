@@ -46,7 +46,7 @@ export function Home() {
           >
             <p className="max-w-md text-[12px] leading-[1.85] tracking-[0.01em] text-ash">
               Ten silhouettes, suspended above glass and lit from below. Every piece is modelled in the browser —
-              drag a garment to spin it a full 360°, and it will keep turning on its own.
+              drag a garment to turn it, and it will keep turning on its own.
             </p>
             <div className="flex items-center gap-4 text-[9px] uppercase tracking-[0.3em] text-ash/60">
               <span className="hidden h-px w-10 bg-white/15 sm:block" />
@@ -145,7 +145,7 @@ export function Home() {
               },
               {
                 q: 'Can I rotate the product?',
-                a: 'Yes. Drag anywhere on the detail stage to spin the piece a full 360° or tilt it. Release and it keeps its momentum before settling back into a slow auto-rotation.',
+                a: 'Yes. Drag anywhere on the detail stage to tilt and spin the garment. Release and it keeps its momentum before settling back into a slow auto-rotation.',
               },
               {
                 q: 'Is checkout live?',
